@@ -3,7 +3,7 @@
 (defparameter *sdl2-cffi-loaded-p* nil)
 
 (cffi:define-foreign-library sdl2-cffi
-  (:unix "libSDL2-2.0.so.0" "libSDL2.so")
+  (:unix (:or "libSDL2-2.0.so.0" "libSDL2.so"))
   (:windows "SDL2.dll"))
 
 (defun load-sdl2-cffi-library ()

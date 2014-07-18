@@ -7,5 +7,7 @@
   :components ((:file "package")
                (:file "sdl")
                (:file "sdl-version")
+               (:file "sdl-event")
+               (:file "sdl-video")
 	       (:file "library")))
 
