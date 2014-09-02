@@ -28,6 +28,7 @@
            #:sdl-gl-delete-context
            #:sdl-gl-depth-size
            #:sdl-gl-double-buffer
+	   #:sdl-gl-get-proc-address
            #:sdl-gl-set-attribute
            #:sdl-gl-set-swap-interval
            #:sdl-gl-swap-window

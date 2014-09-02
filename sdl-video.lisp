@@ -82,3 +82,7 @@
 (defcfun ("SDL_GL_SwapWindow" sdl-gl-swap-window) :void
   (window :pointer))
 
+(defcfun ("SDL_GL_GetProcAddress" sdl-gl-get-proc-address) :pointer
+  (proc :pointer))
+
+

@@ -24,6 +24,21 @@
   (format t "GL renderer: ~a~%" (gl:get* :renderer))
   (format t "GL extensions: ~a~%" (gl:get* :extensions)))
 
+(defun gl-get-proc-address (procname)
+   (with-foreign-string (c-procname procname)
+     (sdl-gl-get-proc-address c-procname)))
+
+(defun create-gl-context (main-window)
+  ;; Setting this hook is especially important on MS Windows,
+  ;; where the majority of the functions need to be queried.
+  (setf %gl:*gl-get-proc-address* #'gl-get-proc-address)
+  (sdl-gl-create-context main-window))
+
+(defun test-gl-get-proc-address ()
+  (let ((vert-shader-id (gl:create-shader :vertex-shader))
+	(frag-shader-id (gl:create-shader :fragment-shader)))
+    (format t "Generated a vertex shader with id=~a~%" vert-shader-id)
+    (format t "Generated a fragment shader with id=~a~%" frag-shader-id)))
 
 (defun hello-opengl-window ()
     (sdl-init +sdl-init-video+)
@@ -34,10 +49,12 @@
     (sdl-gl-set-attribute :sdl-gl-depth-size 24)
     (sdl-gl-set-attribute :sdl-gl-context-flags (foreign-enum-value 'sdl-gl-context-flag :sdl-gl-context-debug-flag))
     (let* ((main-window (create-window))
-	   (main-context (sdl-gl-create-context main-window)))
+	   (main-context (create-gl-context main-window)))
       (sdl-gl-set-swap-interval 1)
 
       (print-gl-info)
+
+      (test-gl-get-proc-address)
 
       (gl:clear-color 1.0 0.0 0.0 1.0)
       (gl:clear :color-buffer-bit)
