@@ -22,7 +22,8 @@
   (format t "GLSL version: ~a~%" (gl:get* :shading-language-version))
   (format t "GL vendor: ~a~%" (gl:get* :vendor))
   (format t "GL renderer: ~a~%" (gl:get* :renderer))
-  (format t "GL extensions: ~a~%" (gl:get* :extensions)))
+  (format t "GL extensions: ~a~%" (gl:get* :extensions))
+  (finish-output))
 
 (defun gl-get-proc-address (procname)
    (with-foreign-string (c-procname procname)
