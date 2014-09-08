@@ -1,4 +1,4 @@
-(in-package #:sdl2-cffi)
+(in-package #:sdl2-cffi-examples)
 
 (defun create-window ()
   (with-foreign-string (title "Hello Lisp!")
