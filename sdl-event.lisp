@@ -1,7 +1,8 @@
 (in-package #:sdl2-cffi)
 
 (defcenum sdl-event-type
-    (:sdl-quit #x100))
+    (:sdl-quit #x100)
+    (:sdl-keydown #x300))
 
 (defcunion sdl-event
   (type :uint32)
