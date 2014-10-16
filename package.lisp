@@ -7,12 +7,17 @@
            #:sdl-init
            #:sdl-quit
 
+	   ;; SDL_event.h
+	   #:sdl-event-type
+	   #:sdl-event
+	   #:sdl-poll-event
+	   #:type
+
            ;; SDL_version.h
            #:major
            #:minor
            #:patch
            #:sdl-version
-
 
            ;; SDL_video.h
            #:+sdl-windowpos-centered+

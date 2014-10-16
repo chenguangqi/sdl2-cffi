@@ -2,4 +2,5 @@
   (:use #:cl
         #:cffi
 	#:sdl2-cffi)
-  (:export #:hello-opengl-window))
+  (:export #:run-hello-opengl-window
+	   #:run-buffer-objects-example))

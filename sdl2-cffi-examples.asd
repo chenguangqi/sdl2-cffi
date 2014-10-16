@@ -7,5 +7,7 @@
   :components
   ((:module "examples"
 	    :components ((:file "package")
+			 (:file "common")
+			 (:file "opengl-buffer-objects")
 			 (:file "hello-opengl-window")))))
 
