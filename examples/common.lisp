@@ -67,7 +67,7 @@
   (format t "GL renderer: ~a~%" (gl:get* :renderer))
   (when print-extensions-p
     (format t "GL extensions:~%")
-    (dolist (extension (sort (cl-utilities:split-sequence #\Space (gl:get* :extensions) #'string-lessp)))
+    (dolist (extension (sort (cl-utilities:split-sequence #\Space (gl:get* :extensions) :remove-empty-subseqs t) #'string-lessp))
       (format t "    ~a~%" extension)))
   (finish-output))
 
